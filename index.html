@@ -227,6 +227,8 @@ footer b{font-family:var(--fun);color:var(--ink);font-size:17px}
 .tile b{display:block;font-family:var(--fun);font-size:34px;font-weight:800;line-height:1.1;color:var(--tc)}
 .tile span{display:block;font-size:13px;color:var(--mute);font-weight:800}
 .impact{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-top:14px}
+.repbar{margin-top:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.repbar span{color:var(--mute);font-weight:800;font-size:14px}
 .icard{background:var(--bg2);border-radius:26px;padding:18px;border:4px dashed var(--ic);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
 .icard h3{font-size:22px;color:var(--ic);display:flex;align-items:center;gap:8px}
 .icard p{margin:0;color:var(--mute);font-size:14px;line-height:1.5}
@@ -268,7 +270,7 @@ footer b{font-family:var(--fun);color:var(--ink);font-size:17px}
 #report .meta{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;margin-top:10px}
 #report .meta div{background:#fff;border:3px dashed var(--ic);border-radius:14px;padding:6px 10px;font-weight:800;color:var(--ic);font-size:13px;display:flex;gap:6px;align-items:center;min-height:40px}
 #report .meta span{color:#2B3A5C;font-family:var(--body);font-size:14px}
-#report .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+#report .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
 #report .tiles div{background:#fff;border:3px dashed var(--tc);border-radius:16px;padding:8px 4px;text-align:center}
 #report .tiles i{font-style:normal;font-size:20px;display:block}
 #report .tiles b{display:block;font-family:var(--fun);font-size:26px;color:var(--tc);line-height:1.1}
@@ -365,7 +367,7 @@ footer b{font-family:var(--fun);color:var(--ink);font-size:17px}
     <div>
       <h1 class="bubble"><span class="w1">بنك</span> <span class="w2">لغة</span> <span class="w3">الإشارة</span><span class="line2"><span class="w4">لكلمات دروس لُغَتي</span></span></h1>
       <div class="grade">📘 لُغَتي · الصف الثالث الابتدائي</div>
-      <p class="lead">افتح الدرس، امسح الباركود، شاهد الإشارة وقلّدها، واجمع النجوم!</p>
+      <p class="lead">امسح الباركود، قلّد الإشارة، واجمع النجوم ⭐</p>
       <div><div class="teacher"><i aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></i>المعلمة: أ. تغريد عبدالرحمن علي الشويلي</div></div>
       <div class="namebox">
         <div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></div>
@@ -415,21 +417,13 @@ footer b{font-family:var(--fun);color:var(--ink);font-size:17px}
   <div class="wod" id="wod"></div>
   <h2 class="section-title">الفصول <small>اختر فصلًا ثم درسًا</small></h2>
   <div class="chapters" id="chapters"></div>
-  <h2 class="section-title">لوحة إنجازي 📊 <small>أرقامي تُحفظ على هذا الجهاز</small></h2>
+  <h2 class="section-title">إنجازي 📊 <small>يُحفظ على هذا الجهاز</small></h2>
   <div class="stats" id="stats"></div>
-  <h2 class="section-title">قياس الأثر 🎯 <small>هل تحسّنت إشاراتي فعلًا؟</small></h2>
   <div class="impact">
-    <div class="icard" style="--ic:var(--purple)"><h3>🧠 تحدي الذاكرة</h3><p>٥ كلمات تعلمتها تظهر لك واحدة واحدة: اعمل الإشارة بيدك، ثم قل بصدق هل أتقنتها. نتائجك تُرسم هنا لترى تقدمك مع الوقت.</p><div class="big" id="quizBest">—</div><div class="trend" id="quizTrend"></div><button class="btn purple" id="quizBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span>ابدأ التحدي</span></button></div>
-    <div class="icard" style="--ic:var(--teal)"><h3>😊 شعوري قبل وبعد</h3><p>في كل درس تقيّم نفسك قبل أن تبدأ وبعد أن تكمل. الفرق بينهما هو أثر تعلّمك.</p><div class="beforeafter" id="baBox"></div><p id="baNote"></p></div>
-    <div class="icard" style="--ic:var(--orange)"><h3>📄 تقرير الأثر</h3><p>ورقة A4 ملونة فيها زياراتك، كلماتك، تقدمك في كل درس ونتائج التحدي — جاهزة للمعلمة أو ولي الأمر.</p><div class="big" id="repDays">—</div><button class="btn orange" id="repBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg><span>تحميل تقرير الأثر (PDF)</span></button></div>
+    <div class="icard" style="--ic:var(--purple)"><h3>🧠 تحدي الذاكرة</h3><p>٥ كلمات: اعمل إشارتها بيدك وقيّم نفسك بصدق.</p><div class="big" id="quizBest">—</div><div class="trend" id="quizTrend"></div><button class="btn purple" id="quizBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span>ابدأ التحدي</span></button></div>
+    <div class="icard" style="--ic:var(--teal)"><h3>😊 قبل وبعد</h3><p>قيّم شعورك قبل كل درس وبعده؛ الفرق هو أثر تعلّمك.</p><div class="beforeafter" id="baBox"></div><p id="baNote"></p></div>
   </div>
-  <h2 class="section-title">كيف أتعلم؟</h2>
-  <div class="howto">
-    <div class="step"><div class="ic" style="background:var(--blue)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v3M14 21h3M21 21h-1"/></svg></div><div><b>1. امسح الباركود</b>وجّه كاميرا الجوال إلى الباركود ليفتح فيديو الإشارة من مكتبة لغة الإشارة السعودية.</div></div>
-    <div class="step"><div class="ic" style="background:var(--lime)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14l11-7z"/></svg></div><div><b>2. شاهد وقلّد</b>شاهد الإشارة ثم أدِّها بيدك أمام زميلك أو المعلمة.</div></div>
-    <div class="step"><div class="ic" style="background:var(--orange)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div><div><b>3. اجمع النجوم</b>اضغط «تعلمتها» تحت كل كلمة أتقنتها، وتابع تقدّمك في كل درس.</div></div>
-    <div class="step"><div class="ic" style="background:var(--purple)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg></div><div><b>4. حمّل ورقة الدرس</b>من داخل كل درس زر يحفظ ورقة A4 فيها كل الكلمات والباركودات باسمك.</div></div>
-  </div>
+  <div class="repbar"><button class="btn orange" id="repBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg><span>تحميل تقرير الأثر (PDF)</span></button><span id="repDays"></span></div>
 </main>
 </div>
 
@@ -446,7 +440,6 @@ footer b{font-family:var(--fun);color:var(--ink);font-size:17px}
     </div>
   </div>
   <div class="wrap">
-    <div class="greet" id="greet"></div>
     <div class="rate-strip" id="rateStrip" hidden></div>
     <div class="done-box" id="doneBox" hidden><span style="font-size:34px">🏆</span><div style="flex:1"><b>أكملت الدرس كله!</b><br>احصل على شهادتك الملونة باسمك.</div><button class="btn orange" id="certBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span>تحميل شهادة الإنجاز</span></button></div>
     <div class="progress"><b id="progText"></b><div class="bar"><i id="progBar"></i></div><label class="filter"><input type="checkbox" id="hideDone"> أخفِ ما تعلمته</label></div>
@@ -552,7 +545,7 @@ function openLesson(key){
     const watch = w.id ? `<a class="watch" href="https://sshi.sa/category/${w.id}" target="_blank" rel="noopener">شاهد ↗</a>` : '';
     return `<div class="card${done?' done':''}" data-id="${esc(id)}"><div class="badge">${starBadge(c)}<span>${i+1}</span></div>${qr}<div class="w">${esc(w.w)}</div><div class="e">${e}</div><div class="row"><button class="star" type="button" data-id="${esc(id)}">${STAR}<span>${done?'تعلمتها':'تعلمتها؟'}</span></button>${watch}</div></div>`;
   }).join('');
-  const nm=studentName(); $('#greet').innerHTML = nm?`مرحبًا ${esc(nm)}! <span>جاهز للتعلم؟ امسح الباركود وابدأ.</span>`:`مرحبًا بك! <span>اكتب اسمك في الصفحة الرئيسية ليظهر على ورقة الدرس.</span>`;
+  
   const i = ALL.indexOf(l); const prev=ALL[i-1], next=ALL[i+1];
   $('#navLessons').innerHTML = `${prev?`<button type="button" class="btn blue" data-go="${prev.key}">→ ${esc(prev.kind)}: ${esc(prev.name)}</button>`:'<span></span>'}${next?`<button type="button" class="btn purple" data-go="${next.key}">${esc(next.kind)}: ${esc(next.name)} ←</button>`:'<button type="button" class="btn purple" data-go="">العودة للفصول</button>'}`;
   current = l; ls.set('last',key); updateProgress(l); applyFilter();
@@ -676,7 +669,7 @@ function fanfare(){ if(muted) return; [523,659,784,1047].forEach((f,i)=>tone(f,i
 function burst(x,y,ch){ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; for(let i=0;i<7;i++){ const s=document.createElement('span'); s.className='burst'; s.textContent=ch; const a=Math.random()*6.28, r=50+Math.random()*50; s.style.setProperty('--dx',Math.cos(a)*r+'px'); s.style.setProperty('--dy',Math.sin(a)*r-30+'px'); s.style.left=x+'px'; s.style.top=y+'px'; document.body.appendChild(s); setTimeout(()=>s.remove(),900);} }
 document.addEventListener('click', e=>{ const st=e.target.closest('.star'); if(st && doneSet.has(st.dataset.id)){ pop(); burst(e.clientX,e.clientY,'⭐'); } });
 const _conf = confetti; confetti = function(){ _conf(); fanfare(); };
-const _ol = openLesson; openLesson = function(key){ _ol(key); const nm=studentName(); if(avatar) $('#greet').insertAdjacentHTML('afterbegin','<span class="avatar">'+avatar+'</span>'); paintDone(); };
+const _ol = openLesson; openLesson = function(key){ _ol(key); paintDone(); };
 const _up = updateProgress; updateProgress = function(l){ _up(l); paintDone(); };
 function paintDone(){ if(!current) return; $('#doneBox').hidden = lessonDone(current)!==current.words.length; }
 $('#randBtn').addEventListener('click', e=>{ if(!current) return; const pool=current.words.map((w,i)=>i).filter(i=>current.words[i].img); const i=pool[Math.random()*pool.length|0]; const w=current.words[i]; $('#mImg').src=w.img; $('#mTitle').textContent=w.w; $('#mSub').textContent = w.e?('الإشارة في المكتبة: '+w.e):'امسح الباركود بكاميرا الجوال'; const a=$('#mLink'); if(w.id){a.hidden=false;a.href='https://sshi.sa/category/'+w.id}else a.hidden=true; $('#modal').classList.add('open'); pop(); burst(e.clientX,e.clientY,'✨'); });
@@ -705,11 +698,9 @@ window.addEventListener('pagehide', saveST);
 function streak(){ const set=new Set(ST.days); let n=0; const d=new Date(); for(;;){ const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); if(set.has(k)){n++; d.setDate(d.getDate()-1);} else break; } return n; }
 function lessonsDone(){ return ALL.filter(l=>l.words.length && lessonDone(l)===l.words.length).length; }
 function statTiles(){ return [
-  ['🚪', ST.visits, 'زيارة للموقع', 'var(--blue)'],
+  ['🚪', ST.visits, 'زيارة', 'var(--blue)'],
   ['🔥', streak(), 'يوم متتالٍ', 'var(--orange)'],
   ['⭐', ALL.reduce((a,l)=>a+lessonDone(l),0), 'كلمة أتقنتها', 'var(--sun)'],
-  ['👀', ST.views, 'إشارة شاهدتها', 'var(--pink)'],
-  ['⏱️', Math.round(ST.secs/60), 'دقيقة تعلّم', 'var(--teal)'],
   ['🏁', lessonsDone(), 'درس مكتمل', 'var(--lime)'] ]; }
 function quizPct(q){ return q.t?Math.round(100*q.c/q.t):0; }
 function baAvg(which){ const v=Object.values(ST.rate).map(r=>r[which]).filter(Boolean); return v.length? v.reduce((a,b)=>a+b,0)/v.length : 0; }
@@ -722,8 +713,8 @@ function renderStats(){
   const b=baAvg('pre'), a=baAvg('post'); const box=$('#baBox');
   box.innerHTML = `<div><b>${b?FACES[Math.round(b)]:'❔'}</b><span>قبل الدرس</span></div><div><b>${a?FACES[Math.round(a)]:'❔'}</b><span>بعد الدرس</span></div>`;
   const n=Object.values(ST.rate).filter(r=>r.pre&&r.post).length;
-  $('#baNote').textContent = n ? `قيّمت ${n} ${n===1?'درسًا':'دروس'} قبل وبعد — ${a>b?'تحسّن واضح! 🎉':a===b?'ثبات جيد، استمر!':'راجع الدروس وستتحسن 💪'}` : 'ابدأ درسًا وقيّم نفسك قبل وبعد لتظهر النتيجة هنا.';
-  $('#repDays').textContent = ST.days.length+' '+(ST.days.length===1?'يوم تعلّم':'أيام تعلّم');
+  $('#baNote').textContent = n ? `${n} ${n===1?'درس':'دروس'} — ${a>b?'تحسّن واضح! 🎉':a===b?'ثبات جيد، استمر!':'راجع الدروس وستتحسن 💪'}` : 'لا يوجد تقييم بعد.';
+  $('#repDays').textContent = 'ورقة A4 فيها تقدمك ونتائجك';
 }
 const _rh2 = renderHome; renderHome = function(){ _rh2(); renderStats(); };
 /* count sign views (QR modal or library link) */
