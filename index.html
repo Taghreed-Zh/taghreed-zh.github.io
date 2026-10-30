@@ -179,7 +179,6 @@ button{font-family:inherit;cursor:pointer}
 footer{margin-top:10px;padding-block:22px 30px;color:var(--mute);font-size:14px;background:var(--bg2);border-top:4px dashed var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center}
 footer b{font-family:var(--fun);color:var(--ink);font-size:17px}
-footer .principal-line{flex-basis:100%;margin-top:22px;padding-top:14px;border-top:2px dashed var(--line);text-align:center;font-family:var(--fun);font-weight:800;font-size:16px;color:var(--ink)}
 /* avatars, level, medals, word of day, sound, certificate */
 .avatars{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
 .avatars .lbl{font-family:var(--fun);font-weight:800;color:var(--ink);margin-left:4px}
@@ -213,13 +212,96 @@ footer .principal-line{flex-basis:100%;margin-top:22px;padding-top:14px;border-t
 #cert .stars{display:flex;gap:10px;margin-top:10px}
 #cert .stars svg{width:44px;height:44px}
 #cert .sig{margin-top:auto;display:flex;justify-content:space-between;gap:16px;width:100%;font-size:17px;font-weight:800}
-#cert .sig span{border-top:3px dotted #9B6BFF;padding-top:8px;min-width:200px;text-align:center}
+#cert .sig span{border-top:3px dotted #9B6BFF;padding-top:8px;min-width:260px;text-align:center}
 #cert .kidc{position:absolute;left:80px;bottom:130px;z-index:2}
 #sheet .key{width:205px;border-radius:20px;padding:6px 10px;background:#fff;border:3px dashed #9B6BFF;display:flex;align-items:center;gap:8px;text-align:right;font-family:var(--body);font-size:10.5px;line-height:1.35;color:#2B3A5C}
 #sheet .key b{display:block;font-family:var(--fun);font-size:13px;color:#6A3FD6;line-height:1.2;margin-bottom:2px}
 #sheet .key img{width:76px;height:76px;image-rendering:pixelated;flex:none}
 #sheet .key span{display:block}
 #sheet.dense .key img{width:70px;height:70px}
+
+/* ---------- stats & impact ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.tile{background:var(--bg2);border-radius:22px;padding:14px 10px 12px;text-align:center;border:3px dashed var(--tc);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.tile i{font-style:normal;font-size:26px;display:block}
+.tile b{display:block;font-family:var(--fun);font-size:34px;font-weight:800;line-height:1.1;color:var(--tc)}
+.tile span{display:block;font-size:13px;color:var(--mute);font-weight:800}
+.impact{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-top:14px}
+.icard{background:var(--bg2);border-radius:26px;padding:18px;border:4px dashed var(--ic);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.icard h3{font-size:22px;color:var(--ic);display:flex;align-items:center;gap:8px}
+.icard p{margin:0;color:var(--mute);font-size:14px;line-height:1.5}
+.icard .big{font-family:var(--fun);font-size:40px;font-weight:800;color:var(--ic);line-height:1}
+.trend{display:flex;align-items:flex-end;gap:6px;height:80px;padding:6px 4px 0;border-bottom:3px dotted var(--line)}
+.trend i{flex:1;max-width:64px;background:var(--ic);border-radius:8px 8px 0 0;min-height:6px;position:relative;opacity:.85}
+.trend{justify-content:center}
+.trend i:last-child{opacity:1}
+.trend i::after{content:attr(data-v);position:absolute;top:-20px;left:0;right:0;text-align:center;font-size:12px;font-weight:800;color:var(--ink);font-style:normal}
+.trend.empty{align-items:center;justify-content:center;color:var(--mute);font-size:14px;border:0}
+.beforeafter{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center}
+.beforeafter div{background:var(--bg);border-radius:18px;padding:10px}
+.beforeafter b{display:block;font-size:32px}
+.beforeafter span{font-size:13px;color:var(--mute);font-weight:800}
+.faces{display:flex;gap:8px;justify-content:center}
+.faces button{font-size:30px;background:var(--bg2);border:3px solid var(--line);border-radius:18px;width:62px;height:62px;cursor:pointer;transition:transform .15s}
+.faces button:hover{transform:scale(1.1)}
+.faces button.sel{border-color:var(--sun);background:#FFF3C4;transform:scale(1.12)}
+.rate-strip{margin:6px 0 14px;background:var(--bg2);border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:3px dashed var(--teal)}
+.rate-strip b{font-size:17px}
+.rate-strip small{display:block;color:var(--mute);font-weight:500}
+#quiz .qword{font-family:var(--fun);font-size:56px;font-weight:800;line-height:1.1;text-align:center}
+#quiz .qimg{width:min(46vw,230px);height:min(46vw,230px);background:#fff;border-radius:22px;padding:8px;image-rendering:pixelated}
+#quiz .qbtns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+#quiz .qbtns .btn{font-size:20px;padding:14px 22px}
+#quiz .qcount{font-weight:800;opacity:.8}
+#quiz .qres{text-align:center;display:none}
+#quiz .qres .big{font-family:var(--fun);font-size:64px;font-weight:800;color:var(--sun)}
+#quiz.done .qlive{display:none}#quiz.done .qres{display:block}
+/* impact report (A4) */
+#report{position:absolute;left:0;top:-30000px;width:794px;height:1123px;background:#DDF1FF;color:#2B3A5C;font-family:var(--display);padding:26px 30px 18px;direction:rtl;overflow:hidden;display:flex;flex-direction:column}
+#report .bgdeco{position:absolute;inset:0;z-index:0}
+#report>*:not(.bgdeco){position:relative;z-index:1}
+#report .hd{display:flex;align-items:center;gap:14px}
+#report .hd .t{flex:1;text-align:center}
+#report .hd .top{font-family:var(--fun);font-size:24px;font-weight:800;color:#3F8CFF;text-shadow:-3px -3px 0 #fff,3px -3px 0 #fff,-3px 3px 0 #fff,3px 3px 0 #fff,0 -3px 0 #fff,0 3px 0 #fff,-3px 0 0 #fff,3px 0 0 #fff}
+#report h1{font-family:var(--fun);font-size:40px;font-weight:800;margin:2px 0 0;color:#FF6FA8;text-shadow:-3px -3px 0 #fff,3px -3px 0 #fff,-3px 3px 0 #fff,3px 3px 0 #fff,0 -3px 0 #fff,0 3px 0 #fff,-3px 0 0 #fff,3px 0 0 #fff,0 6px 0 rgba(43,58,92,.18)}
+#report .ribbon{display:inline-block;margin-top:6px;background:#9B6BFF;color:#fff;font-weight:800;font-size:14px;padding:4px 18px;border-radius:999px;border:3px solid #fff}
+#report .meta{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;margin-top:10px}
+#report .meta div{background:#fff;border:3px dashed var(--ic);border-radius:14px;padding:6px 10px;font-weight:800;color:var(--ic);font-size:13px;display:flex;gap:6px;align-items:center;min-height:40px}
+#report .meta span{color:#2B3A5C;font-family:var(--body);font-size:14px}
+#report .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+#report .tiles div{background:#fff;border:3px dashed var(--tc);border-radius:16px;padding:8px 4px;text-align:center}
+#report .tiles i{font-style:normal;font-size:20px;display:block}
+#report .tiles b{display:block;font-family:var(--fun);font-size:26px;color:var(--tc);line-height:1.1}
+#report .tiles span{font-size:11px;font-weight:800;color:#6F7A90}
+#report h2{font-family:var(--fun);font-size:18px;margin:14px 0 6px;color:#1F8A4C}
+#report .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}
+#report .box{background:#fff;border:3px dashed #2DC2B5;border-radius:18px;padding:10px 12px}
+#report .lrow{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;margin:3px 0}
+#report .lrow em{font-style:normal;width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#report .lrow .bar{flex:1;height:12px;background:#EEF2F8;border-radius:999px;overflow:hidden}
+#report .lrow .bar i{display:block;height:100%;border-radius:999px;background:var(--c)}
+#report .lrow small{width:40px;text-align:left;font-family:var(--body);color:#6F7A90}
+#report .trend{height:90px;border-bottom:3px dotted #D7E3F3}
+#report .trend i{background:#9B6BFF}
+#report .trend i::after{color:#2B3A5C}
+#report .ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:center;margin-top:8px}
+#report .ba div{background:#F3F6FB;border-radius:14px;padding:6px}
+#report .ba b{display:block;font-size:26px}
+#report .ba span{font-size:11px;font-weight:800;color:#6F7A90}
+#report .note{margin-top:auto;background:#fff;border:3px dashed #FFC83D;border-radius:18px;padding:10px 14px;font-family:var(--body);font-size:12.5px;line-height:1.5}
+#report .note b{font-family:var(--fun);color:#D36A0F;font-size:15px;display:block}
+#report .map{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:4px}
+#report .map .chm{font-size:11.5px;font-weight:800}
+#report .map .dots{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}
+#report .map .dots i{width:11px;height:11px;border-radius:4px;background:#E3E9F2;display:block}
+#report .map .dots i.on{background:var(--c)}
+#report .days{display:flex;gap:5px;margin-top:6px}
+#report .days div{flex:1;text-align:center;font-size:9.5px;font-weight:800;color:#6F7A90}
+#report .days b{display:block;width:100%;aspect-ratio:1;border-radius:8px;background:#E3E9F2;font-size:12px;line-height:1;display:grid;place-items:center;color:#fff}
+#report .days b.on{background:#6CC644}
+#report .ft{margin-top:8px;display:flex;justify-content:space-between;align-items:center;font-family:var(--body);font-size:11px;color:#4A5A7A}
+#report .ft b{font-family:var(--fun);font-size:13px;color:#2B3A5C;background:#fff;border-radius:999px;padding:3px 12px;border:3px dashed #9B6BFF}
+
 /* ---------- A4 SHEET (rendered to PDF with html2canvas: no text-stroke, so outlines use text-shadow) ---------- */
 #sheet{position:absolute;left:0;top:-30000px;width:794px;height:1123px;background:#DDF1FF;color:#2B3A5C;font-family:var(--display);padding:22px 28px 16px;display:flex;flex-direction:column;direction:rtl;overflow:hidden}
 #sheet .bgdeco{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -333,6 +415,14 @@ footer .principal-line{flex-basis:100%;margin-top:22px;padding-top:14px;border-t
   <div class="wod" id="wod"></div>
   <h2 class="section-title">الفصول <small>اختر فصلًا ثم درسًا</small></h2>
   <div class="chapters" id="chapters"></div>
+  <h2 class="section-title">لوحة إنجازي 📊 <small>أرقامي تُحفظ على هذا الجهاز</small></h2>
+  <div class="stats" id="stats"></div>
+  <h2 class="section-title">قياس الأثر 🎯 <small>هل تحسّنت إشاراتي فعلًا؟</small></h2>
+  <div class="impact">
+    <div class="icard" style="--ic:var(--purple)"><h3>🧠 تحدي الذاكرة</h3><p>٥ كلمات تعلمتها تظهر لك واحدة واحدة: اعمل الإشارة بيدك، ثم قل بصدق هل أتقنتها. نتائجك تُرسم هنا لترى تقدمك مع الوقت.</p><div class="big" id="quizBest">—</div><div class="trend" id="quizTrend"></div><button class="btn purple" id="quizBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span>ابدأ التحدي</span></button></div>
+    <div class="icard" style="--ic:var(--teal)"><h3>😊 شعوري قبل وبعد</h3><p>في كل درس تقيّم نفسك قبل أن تبدأ وبعد أن تكمل. الفرق بينهما هو أثر تعلّمك.</p><div class="beforeafter" id="baBox"></div><p id="baNote"></p></div>
+    <div class="icard" style="--ic:var(--orange)"><h3>📄 تقرير الأثر</h3><p>ورقة A4 ملونة فيها زياراتك، كلماتك، تقدمك في كل درس ونتائج التحدي — جاهزة للمعلمة أو ولي الأمر.</p><div class="big" id="repDays">—</div><button class="btn orange" id="repBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg><span>تحميل تقرير الأثر (PDF)</span></button></div>
+  </div>
   <h2 class="section-title">كيف أتعلم؟</h2>
   <div class="howto">
     <div class="step"><div class="ic" style="background:var(--blue)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v3M14 21h3M21 21h-1"/></svg></div><div><b>1. امسح الباركود</b>وجّه كاميرا الجوال إلى الباركود ليفتح فيديو الإشارة من مكتبة لغة الإشارة السعودية.</div></div>
@@ -357,6 +447,7 @@ footer .principal-line{flex-basis:100%;margin-top:22px;padding-top:14px;border-t
   </div>
   <div class="wrap">
     <div class="greet" id="greet"></div>
+    <div class="rate-strip" id="rateStrip" hidden></div>
     <div class="done-box" id="doneBox" hidden><span style="font-size:34px">🏆</span><div style="flex:1"><b>أكملت الدرس كله!</b><br>احصل على شهادتك الملونة باسمك.</div><button class="btn orange" id="certBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span>تحميل شهادة الإنجاز</span></button></div>
     <div class="progress"><b id="progText"></b><div class="bar"><i id="progBar"></i></div><label class="filter"><input type="checkbox" id="hideDone"> أخفِ ما تعلمته</label></div>
     <div class="words" id="words"></div>
@@ -381,11 +472,23 @@ footer .principal-line{flex-basis:100%;margin-top:22px;padding-top:14px;border-t
 <canvas id="confetti" aria-hidden="true"></canvas>
 <button class="sound" id="soundBtn" type="button" aria-label="الصوت" title="الصوت"></button>
 <div id="cert" aria-hidden="true"></div>
+<div class="show" id="quiz" role="dialog" aria-modal="true">
+  <div class="qlive" style="display:flex;flex-direction:column;align-items:center;gap:14px">
+    <div class="qcount" id="qCount"></div>
+    <img class="qimg" id="qImg" alt="">
+    <div class="qword" id="qWord"></div>
+    <div style="opacity:.85;font-weight:800">اعمل الإشارة بيدك الآن… ثم اختر بصدق</div>
+    <div class="qbtns"><button class="btn lime" id="qYes" type="button"><span>أتقنتها ✅</span></button><button class="btn pink" id="qNo" type="button"><span>أحتاج مراجعة 🔁</span></button></div>
+  </div>
+  <div class="qres"><div style="font-size:22px;font-weight:800">نتيجتك</div><div class="big" id="qScore"></div><div id="qMsg" style="font-size:18px;margin-bottom:14px"></div><div class="qbtns"><button class="btn purple" id="qAgain" type="button"><span>تحدٍّ جديد 🔄</span></button><button class="btn white" id="qClose2" type="button"><span>إغلاق</span></button></div></div>
+  <button class="btn white" id="qClose" type="button" style="position:absolute;top:16px;left:16px"><span>✕</span></button>
+</div>
+<div id="report" aria-hidden="true"></div>
+
 
 <footer><div class="wrap">
   <div><b>إعداد المعلمة: أ. تغريد عبدالرحمن علي الشويلي</b></div>
   <div>الباركودات مستخرجة من مكتبة لغة الإشارة السعودية (sshi.sa) لأغراض تعليمية · 2026</div>
-  <div class="principal-line">مديرة المدرسة: أ. شريفه العليان</div>
 </div></footer>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
@@ -408,7 +511,7 @@ footer .principal-line{flex-basis:100%;margin-top:22px;padding-top:14px;border-t
 <script>
 (function(){
 const DATA = JSON.parse(document.getElementById('data').textContent);
-const TEACHER = "أ. تغريد عبدالرحمن علي الشويلي"; const PRINCIPAL = "أ. شريفه العليان"; const SITE_URL = "https://taghreed-zh.github.io/";
+const TEACHER = "أ. تغريد عبدالرحمن علي الشويلي"; const SITE_URL = "https://taghreed-zh.github.io/";
 function siteQR(px){ try{ if(typeof qrcode==="undefined") return ""; const q=qrcode(0,"M"); q.addData(SITE_URL); q.make(); const cell=Math.max(2,Math.round(px/q.getModuleCount())); return `<img src="${q.createDataURL(cell,2)}" alt="مفتاح بنك الإشارة" width="${px}" height="${px}">`; }catch(e){ return ""; } }
 const COLORS = {c1:['#3F8CFF','#1F5FD1','#E1EEFF'],c2:['#36B36B','#1F8A4C','#E2F7E8'],c3:['#FF9A3D','#D36A0F','#FFEFDD'],c4:['#9B6BFF','#6A3FD6','#EFE8FF']};
 const CANDY = ['#3F8CFF','#FF6FA8','#6CC644','#9B6BFF','#FF9A3D','#2DC2B5'];
@@ -580,7 +683,7 @@ $('#randBtn').addEventListener('click', e=>{ if(!current) return; const pool=cur
 /* certificate */
 function buildCert(l){ const dt=new Date().toLocaleDateString('ar-SA-u-nu-arab',{year:'numeric',month:'long',day:'numeric'}); const nm=studentName()||'بطل الإشارة';
   $('#cert').innerHTML = `<div class="bg"><svg viewBox="0 0 1123 794" width="1123" height="794"><rect width="1123" height="794" fill="#DDF1FF"/><g fill="#fff"><ellipse cx="160" cy="140" rx="90" ry="30"/><circle cx="130" cy="122" r="34"/><circle cx="186" cy="112" r="42"/><ellipse cx="980" cy="200" rx="80" ry="26"/><circle cx="954" cy="184" r="30"/><circle cx="1000" cy="176" r="36"/><ellipse cx="900" cy="660" rx="90" ry="28"/><circle cx="870" cy="644" r="32"/><circle cx="924" cy="636" r="38"/></g><circle cx="1010" cy="110" r="46" fill="#FFC83D"/><g fill="#FFC83D" stroke="#fff" stroke-width="2"><path d="M120 420l7 15 16 2-12 11 3 16-14-8-14 8 3-16-12-11 16-2z"/><path d="M1000 400l7 15 16 2-12 11 3 16-14-8-14 8 3-16-12-11 16-2z"/><path d="M560 120l5 10 11 1-8 8 2 11-10-5-10 5 2-11-8-8 11-1z"/></g><g fill="#FF6FA8" stroke="#fff" stroke-width="2"><path d="M200 640l5 10 11 1-8 8 2 11-10-5-10 5 2-11-8-8 11-1z"/><path d="M940 520l5 10 11 1-8 8 2 11-10-5-10 5 2-11-8-8 11-1z"/></g><path d="M0 794v-70c200-40 400-40 560-10s360 30 563-10v90z" fill="#9BE28A"/><path d="M0 794v-36c220-26 420-20 560 0s340 14 563-14v50z" fill="#6CC644"/></svg></div><div class="frame"></div><div class="frame2"></div>
-  <div class="in"><div class="ttl">بنك لغة الإشارة</div><h1>شهادة نجم الإشارة</h1><div style="font-size:22px;font-weight:800">تُمنح هذه الشهادة إلى</div><div class="nm">${avatar?avatar+' ':''}${esc(nm)}</div><div class="txt">لإتقانه كل كلمات <b>${esc(l.kind)}: ${esc(l.name)}</b> (${l.words.length} كلمة) بلغة الإشارة<br>من لُغَتي · الصف الثالث الابتدائي — ${esc(l.ch.num)}: ${esc(l.ch.title)}<br>أحسنت، استمر في التألق! 🌟</div><div class="stars">${STAR.replace('currentColor','#FFC83D').repeat(5)}</div><div class="sig"><span>المعلمة: ${esc(TEACHER)}</span><span>مديرة المدرسة: ${esc(PRINCIPAL)}</span><span>التاريخ: ${dt}</span></div></div><div class="kidc">${KID}</div>`; }
+  <div class="in"><div class="ttl">بنك لغة الإشارة</div><h1>شهادة نجم الإشارة</h1><div style="font-size:22px;font-weight:800">تُمنح هذه الشهادة إلى</div><div class="nm">${avatar?avatar+' ':''}${esc(nm)}</div><div class="txt">لإتقانه كل كلمات <b>${esc(l.kind)}: ${esc(l.name)}</b> (${l.words.length} كلمة) بلغة الإشارة<br>من لُغَتي · الصف الثالث الابتدائي — ${esc(l.ch.num)}: ${esc(l.ch.title)}<br>أحسنت، استمر في التألق! 🌟</div><div class="stars">${STAR.replace('currentColor','#FFC83D').repeat(5)}</div><div class="sig"><span>المعلمة: ${esc(TEACHER)}</span><span>التاريخ: ${dt}</span></div></div><div class="kidc">${KID}</div>`; }
 async function downloadCert(){ if(!current) return; const btn=$('#certBtn'); btn.disabled=true; const label=btn.querySelector('span'); const old=label.textContent; label.textContent='جارٍ تجهيز الشهادة…';
   try{ if(document.fonts && document.fonts.ready) await document.fonts.ready; buildCert(current);
     const canvas = await html2canvas($('#cert'), {scale:2, backgroundColor:'#DDF1FF', useCORS:true, logging:false});
@@ -590,6 +693,91 @@ async function downloadCert(){ if(!current) return; const btn=$('#certBtn'); btn
   }catch(err){ if(err && err.code==='declined') toast('ألغيت الحفظ'); else toast('تعذّر تجهيز الشهادة، حاول مرة أخرى'); console.error(err); }
   finally{ btn.disabled=false; label.textContent=old; $('#cert').innerHTML=''; } }
 $('#certBtn').addEventListener('click', downloadCert);
+
+/* ---------- stats & impact ---------- */
+const today = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+let ST; try{ ST = JSON.parse(ls.get('stats')||'{}'); }catch(e){ ST={}; }
+ST = Object.assign({visits:0, days:[], views:0, secs:0, quiz:[], rate:{}, first:today()}, ST);
+function saveST(){ ls.set('stats', JSON.stringify(ST)); }
+ST.visits++; if(!ST.days.includes(today())) ST.days.push(today()); saveST();
+setInterval(()=>{ if(document.visibilityState==='visible'){ ST.secs+=30; if(ST.secs%120===0) saveST(); } }, 30000);
+window.addEventListener('pagehide', saveST);
+function streak(){ const set=new Set(ST.days); let n=0; const d=new Date(); for(;;){ const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); if(set.has(k)){n++; d.setDate(d.getDate()-1);} else break; } return n; }
+function lessonsDone(){ return ALL.filter(l=>l.words.length && lessonDone(l)===l.words.length).length; }
+function statTiles(){ return [
+  ['🚪', ST.visits, 'زيارة للموقع', 'var(--blue)'],
+  ['🔥', streak(), 'يوم متتالٍ', 'var(--orange)'],
+  ['⭐', ALL.reduce((a,l)=>a+lessonDone(l),0), 'كلمة أتقنتها', 'var(--sun)'],
+  ['👀', ST.views, 'إشارة شاهدتها', 'var(--pink)'],
+  ['⏱️', Math.round(ST.secs/60), 'دقيقة تعلّم', 'var(--teal)'],
+  ['🏁', lessonsDone(), 'درس مكتمل', 'var(--lime)'] ]; }
+function quizPct(q){ return q.t?Math.round(100*q.c/q.t):0; }
+function baAvg(which){ const v=Object.values(ST.rate).map(r=>r[which]).filter(Boolean); return v.length? v.reduce((a,b)=>a+b,0)/v.length : 0; }
+const FACES=['','😕','🙂','😎'];
+function renderStats(){
+  $('#stats').innerHTML = statTiles().map(([i,v,t,c])=>`<div class="tile" style="--tc:${c}"><i>${i}</i><b>${v}</b><span>${t}</span></div>`).join('');
+  const last=ST.quiz.slice(-6);
+  $('#quizBest').textContent = ST.quiz.length ? quizPct(ST.quiz[ST.quiz.length-1])+'%' : '—';
+  const tr=$('#quizTrend'); if(last.length){ tr.classList.remove('empty'); tr.innerHTML = last.map(q=>`<i style="height:${Math.max(6,quizPct(q))}%" data-v="${quizPct(q)}%"></i>`).join(''); } else { tr.classList.add('empty'); tr.textContent='لا توجد محاولات بعد — ابدأ أول تحدٍّ!'; }
+  const b=baAvg('pre'), a=baAvg('post'); const box=$('#baBox');
+  box.innerHTML = `<div><b>${b?FACES[Math.round(b)]:'❔'}</b><span>قبل الدرس</span></div><div><b>${a?FACES[Math.round(a)]:'❔'}</b><span>بعد الدرس</span></div>`;
+  const n=Object.values(ST.rate).filter(r=>r.pre&&r.post).length;
+  $('#baNote').textContent = n ? `قيّمت ${n} ${n===1?'درسًا':'دروس'} قبل وبعد — ${a>b?'تحسّن واضح! 🎉':a===b?'ثبات جيد، استمر!':'راجع الدروس وستتحسن 💪'}` : 'ابدأ درسًا وقيّم نفسك قبل وبعد لتظهر النتيجة هنا.';
+  $('#repDays').textContent = ST.days.length+' '+(ST.days.length===1?'يوم تعلّم':'أيام تعلّم');
+}
+const _rh2 = renderHome; renderHome = function(){ _rh2(); renderStats(); };
+/* count sign views (QR modal or library link) */
+document.addEventListener('click', e=>{ if(e.target.closest('img.qr') || e.target.closest('a.watch') || e.target.id==='mLink' || e.target.closest('#showBtn')){ ST.views++; saveST(); } }, true);
+/* before / after self-rating in lesson view */
+function renderRate(l){
+  const r = ST.rate[l.key] || (ST.rate[l.key]={}); const strip=$('#rateStrip'); const complete = l.words.length && lessonDone(l)===l.words.length;
+  let phase = !r.pre ? 'pre' : (complete && !r.post ? 'post' : null);
+  if(!phase){ strip.hidden=true; return; }
+  strip.hidden=false; strip.dataset.phase=phase;
+  strip.innerHTML = `<div style="flex:1"><b>${phase==='pre'?'قبل أن تبدأ: كم تعرف من إشارات هذا الدرس؟':'أكملت الدرس! كيف صارت إشاراتك الآن؟'}</b><small>${phase==='pre'?'اختر الوجه الذي يشبهك — لا توجد إجابة خاطئة':'قارن بشعورك قبل الدرس'}</small></div><div class="faces">${[1,2,3].map(v=>`<button type="button" data-rate="${v}" title="${['','قليل','متوسط','كثير'][v]}">${FACES[v]}</button>`).join('')}</div>`;
+}
+document.addEventListener('click', e=>{ const b=e.target.closest('[data-rate]'); if(!b || !current) return; const phase=$('#rateStrip').dataset.phase; ST.rate[current.key][phase]=+b.dataset.rate; saveST(); b.classList.add('sel'); pop(); setTimeout(()=>{ renderRate(current); toast(phase==='pre'?'رائع! الآن ابدأ التعلم 🚀':'سُجّل شعورك بعد الدرس 🎯'); }, 450); });
+const _ol2 = openLesson; openLesson = function(key){ _ol2(key); if(current) renderRate(current); };
+const _up2 = updateProgress; updateProgress = function(l){ _up2(l); renderRate(l); };
+/* memory challenge */
+let Q={items:[],i:0,c:0};
+function quizPool(){ let pool=ALL.flatMap(l=>l.words.filter(w=>w.img && doneSet.has(l.key+'|'+w.w))); if(pool.length<5) pool=ALL.flatMap(l=>l.words.filter(w=>w.img)); return pool; }
+function startQuiz(){ const pool=quizPool().slice(); for(let i=pool.length-1;i>0;i--){ const j=Math.random()*(i+1)|0; [pool[i],pool[j]]=[pool[j],pool[i]]; } Q={items:pool.slice(0,5),i:0,c:0}; $('#quiz').classList.remove('done'); $('#quiz').classList.add('open'); showQ(); }
+function showQ(){ const w=Q.items[Q.i]; $('#qImg').src=w.img; $('#qWord').textContent=w.w; $('#qCount').textContent=`الكلمة ${Q.i+1} من ${Q.items.length}`; }
+function answerQ(ok){ if(ok){Q.c++; pop();} else tone&&tone(220,.15); Q.i++; if(Q.i<Q.items.length) showQ(); else finishQ(); }
+function finishQ(){ const rec={d:today(),c:Q.c,t:Q.items.length}; ST.quiz.push(rec); if(ST.quiz.length>30) ST.quiz.shift(); saveST(); const pct=quizPct(rec); $('#qScore').textContent=`${Q.c} / ${Q.items.length}`; const prev=ST.quiz[ST.quiz.length-2]; $('#qMsg').textContent = pct===100?'مذهل! كل الإشارات متقنة 🏆': prev ? (pct>quizPct(prev)?`تحسّنت عن المرة السابقة (${quizPct(prev)}% → ${pct}%) 🎉`:`نتيجتك ${pct}% — راجع الكلمات وجرّب مرة أخرى 💪`) : `أول نتيجة لك: ${pct}% — كل تحدٍّ قادم سيُقارن بها!`; $('#quiz').classList.add('done'); if(pct>=80) confetti(); renderStats(); }
+$('#quizBtn').addEventListener('click', startQuiz); $('#qAgain').addEventListener('click', startQuiz);
+$('#qYes').addEventListener('click', ()=>answerQ(true)); $('#qNo').addEventListener('click', ()=>answerQ(false));
+$('#qClose').addEventListener('click', ()=>$('#quiz').classList.remove('open')); $('#qClose2').addEventListener('click', ()=>$('#quiz').classList.remove('open'));
+/* impact report PDF */
+function buildReport(){
+  const nm=studentName()||'الطالب/ة'; const dt=new Date().toLocaleDateString('ar-SA-u-nu-arab',{year:'numeric',month:'long',day:'numeric'});
+  const tiles=statTiles().map(([i,v,t,c])=>`<div style="--tc:${c}"><i>${i}</i><b>${v}</b><span>${t}</span></div>`).join('');
+  const rows=ALL.map(l=>{ const n=lessonDone(l), t=l.words.length, pc=t?Math.round(100*n/t):0; const [c]=COLORS[l.ch.key]; return `<div class="lrow" style="--c:${c}"><em>${esc(l.ch.num.replace('الفصل ',''))} · ${esc(l.kind)}: ${esc(l.name)}</em><div class="bar"><i style="width:${pc}%"></i></div><small>${n}/${t}</small></div>`; }).join('');
+  const last=ST.quiz.slice(-8); const trend = last.length? last.map(q=>`<i style="height:${Math.max(6,quizPct(q))}%" data-v="${quizPct(q)}%"></i>`).join('') : '';
+  const b=baAvg('pre'), a=baAvg('post'); const total=ALL.reduce((x,l)=>x+lessonDone(l),0); const pctAll=Math.round(100*total/TOTAL_WORDS);
+  const first=ST.quiz[0], lastq=ST.quiz[ST.quiz.length-1];
+  const verdict = [ `أتقن ${total} كلمة من ${TOTAL_WORDS} (${pctAll}%) عبر ${ST.days.length} ${ST.days.length===1?'يوم':'أيام'} تعلّم و${ST.visits} زيارة.`,
+    ST.quiz.length>=2 ? `تحدي الذاكرة: من ${quizPct(first)}% في أول محاولة إلى ${quizPct(lastq)}% في آخر محاولة (${ST.quiz.length} محاولات).` : ST.quiz.length===1 ? `تحدي الذاكرة: محاولة واحدة بنتيجة ${quizPct(lastq)}%.` : 'لم يبدأ تحدي الذاكرة بعد.',
+    (b&&a) ? `التقييم الذاتي: ${FACES[Math.round(b)]} قبل الدروس ← ${FACES[Math.round(a)]} بعدها.` : '' ].filter(Boolean).join(' ');
+  $('#report').innerHTML = `<div class="bgdeco">${SHEET_BG}</div>
+  <div class="hd"><div style="width:120px;flex:none">${KID.replace('width="150" height="160"','width="120" height="128"')}</div><div class="t"><div class="top">بنك لغة الإشارة · لُغَتي ٣</div><h1>تقرير أثر التعلّم</h1><span class="ribbon">لُغَتي · الصف الثالث الابتدائي</span></div><div style="width:120px;flex:none;text-align:center;font-size:54px">📊</div></div>
+  <div class="meta"><div style="--ic:#3F8CFF">👤 الطالب/ة: <span>${esc(nm)}</span></div><div style="--ic:#9B6BFF">👩‍🏫 المعلمة: <span style="font-size:12px">${esc(TEACHER)}</span></div><div style="--ic:#FF9A3D">📅 التاريخ: <span>${dt}</span></div></div>
+  <div class="tiles">${tiles}</div>
+  <div class="cols"><div><h2>📚 تقدمي في كل درس</h2><div class="box">${rows}</div></div><div><h2>🧠 تحدي الذاكرة</h2><div class="box"><div class="trend ${trend?'':'empty'}">${trend||'لا توجد محاولات بعد'}</div><div style="font-size:11px;color:#6F7A90;text-align:center;margin-top:4px">نسبة الإتقان في آخر ${last.length||0} محاولات</div><div class="ba"><div><b>${b?FACES[Math.round(b)]:'❔'}</b><span>شعوري قبل الدرس</span></div><div><b>${a?FACES[Math.round(a)]:'❔'}</b><span>شعوري بعد الدرس</span></div></div></div></div></div>
+  <h2>🗺️ خريطة كلماتي</h2><div class="box"><div class="map">${DATA.map(ch=>{ const [c]=COLORS[ch.key]; const ws=ch.lessons.flatMap(l=>l.words.map(w=>doneSet.has(l.key+'|'+w.w))); return `<div style="--c:${c}"><div class="chm" style="color:${c}">${esc(ch.num)}: ${esc(ch.title)} — ${ws.filter(Boolean).length}/${ws.length}</div><div class="dots">${ws.map(d=>`<i class="${d?'on':''}"></i>`).join('')}</div></div>`; }).join('')}</div>
+  <div class="chm" style="margin-top:10px;font-size:11.5px;font-weight:800;color:#1F8A4C">📅 آخر ١٤ يومًا</div><div class="days">${(()=>{ const out=[]; const set=new Set(ST.days); for(let i=13;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); out.push(`<div><b class="${set.has(k)?'on':''}">${set.has(k)?'✓':''}</b>${d.getDate()}</div>`);} return out.join(''); })()}</div></div>
+  <div class="note"><b>خلاصة الأثر ✨</b>${verdict}</div>
+  <div class="ft"><b>المعلمة: ${esc(TEACHER)}</b><span>الأرقام مسجلة على جهاز الطالب من موقع بنك لغة الإشارة</span><span>2026</span></div>`;
+}
+async function downloadReport(){ const btn=$('#repBtn'); btn.disabled=true; const label=btn.querySelector('span'); const old=label.textContent; label.textContent='جارٍ تجهيز التقرير…';
+  try{ if(document.fonts && document.fonts.ready) await document.fonts.ready; buildReport();
+    const canvas = await html2canvas($('#report'), {scale:2, backgroundColor:'#DDF1FF', useCORS:true, logging:false});
+    const pdf = new jspdf.jsPDF({orientation:'portrait', unit:'mm', format:'a4', compress:true}); pdf.addImage(canvas.toDataURL('image/jpeg',0.92),'JPEG',0,0,210,297);
+    const who = studentName()? ' - '+studentName():''; await deliver(pdf.output('blob'), `تقرير الأثر${who}.pdf`, 'تقرير الأثر'); toast('تم تجهيز تقرير الأثر 📊');
+  }catch(err){ console.error(err); toast('تعذر إنشاء التقرير — تأكد من الاتصال بالإنترنت'); } finally{ btn.disabled=false; label.textContent=old; $('#report').innerHTML=''; } }
+$('#repBtn').addEventListener('click', downloadReport);
+
 renderHome(); route();
 })();
 </script>
